@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Datos</title>
+</head>
+
+<body>
+  
+    <h1>Formulario de Datos</h1>
+    <form class="formularios" action="/api/v1/datos" method="POST">
+        <label for="id">ID:</label><br>
+        <input type="number" id="id" name="id" required><br><br>
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+        <label for="date">Fecha:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="description">Descripción:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+        <label for="invitados">Invitados:</label><br>
+        <input type="text" id="invitados" name="invitados" required><br><br>
+        <input type="submit" value="Guardar">
+    </form>
+
+    <h1>Actualizar datos</h1>
+    <form class="formularios" action="/api/v1/datos/update" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="datoIdUpdate">ID del dato a actualizar:</label><br>
+        <input type="text" id="datoIdUpdate" name="id" required><br><br>
+        <label for="titleUpdate">Nuevo Título:</label><br>
+        <input type="text" id="titleUpdate" name="title"><br><br>
+        <label for="dateUpdate">Nueva Fecha:</label><br>
+        <input type="date" id="dateUpdate" name="date"><br><br>
+        <label for="descriptionUpdate">Nueva Descripción:</label><br>
+        <textarea id="descriptionUpdate" name="description" rows="4" cols="50"></textarea><br><br>
+        <label for="invitadosUpdate">Nuevo Invitado:</label><br>
+        <input type="email" id="invitadosUpdate" name="invitados"><br><br>
+        <input type="submit" value="Actualizar Dato">
+    </form>
+
+    <h1>Buscar por ID</h1>    
+<form class="formularios" action="/api/v1/datos/dato.id>" method="GET">
+    <label for="datoId">Buscar dato por ID:</label><br>
+    <input type="text" id="datoId" name="id" required><br><br>
+    <input type="submit" value="Buscar">
+</form>
+
+
+
+
+
+<h1>Eliminar por ID</h1>
+<form class="formularios" action="/api/v1/datos/delete" method="POST"> 
+    <input type="hidden" name="_method" value="DELETE"> 
+    <label for="datoIdDelete">ID del dato a eliminar:</label><br>
+    <input type="text" id="datoIdDelete" name="id" required><br><br>
+    <input type="submit" value="Eliminar">
+</form>
+
+    <h1>Mostrar todos</h1>
+    <a class="formularios" href="/api/v1/datos" target="_blank">Mostrar Todos los Datos</a>
+</body>
+</html>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        overflow-x: hidden;
+        background-color: rgba(233, 233, 233, 0.705);
+
+    }
+    .formularios{
+        padding: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 2px solid black;
+        background-color: rgba(220, 220, 220, 0.634);
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px  rgb(174, 174, 174);
+    }
+    input{
+        border-radius:  5px;
+    }
+</style>
